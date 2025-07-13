@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int          @id @default(autoincrement())
+  email        String       @unique
+  password     String
+  name         String
+  meters       Meter[]      // зв’язок з лічильниками
+  tariff       Tariff?      // зв’язок 1:1 з тарифом
+}
+
+model Meter {
+  id             Int               @id @default(autoincrement())
+  name           String            // назва лічильника (наприклад: кухня, офіс)
+  userId         Int
+  user           User              @relation(fields: [userId], references: [id])
+  dailyRecords   DailyConsumption[]
+}
+
+model DailyConsumption {
+  id        Int      @id @default(autoincrement())
+  meterId   Int
+  date      DateTime // дата споживання
+  kWh       Float     // кількість спожитих кВт⋅год за день
+
+  meter     Meter    @relation(fields: [meterId], references: [id])
+
+  @@unique([meterId, date]) // один запис на день
+}
+
+model Tariff {
+  id       Int     @id @default(autoincrement())
+  userId   Int     @unique
+  price    Float   // грн за 1 кВт⋅год
+
+  user     User    @relation(fields: [userId], references: [id])
+}
