@@ -18,13 +18,13 @@ export async function POST(request) {
     const authToken = `token-${user.id}`;  // Спрощено: токен на основі ID користувача
 
     // 4. Створити відповідь та встановити cookie з токеном (доступний для JS на клієнті)
-    const response = NextResponse.json({ success: true });
-    response.cookies.set('auth-token', authToken, {
-      httpOnly: false,           // не httpOnly, щоб був доступний на клієнті
-      path: '/',                 // шлях / – cookie буде доступний на всіх сторінках:contentReference[oaicite:0]{index=0}
-      sameSite: 'lax',           // захист від CSRF (lax за замовчуванням підходить для авторизації)
-      secure: true               // вимагає HTTPS у продакшн (безпечніше використовувати secure)
-    });
+    const response = NextResponse.json({ user, authToken, success: true });
+    // response.cookies.set('auth-token', authToken, {
+    //   httpOnly: false,           // не httpOnly, щоб був доступний на клієнті
+    //   path: '/',                 // шлях / – cookie буде доступний на всіх сторінках:contentReference[oaicite:0]{index=0}
+    //   sameSite: 'lax',           // захист від CSRF (lax за замовчуванням підходить для авторизації)
+    //   secure: true               // вимагає HTTPS у продакшн (безпечніше використовувати secure)
+    // });
     return response;  // 5. Відправити відповідь з встановленим cookie
   } catch (err) {
     return NextResponse.json({ error: 'Server error' }, { status: 500 });

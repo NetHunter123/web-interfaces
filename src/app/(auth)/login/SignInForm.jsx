@@ -6,7 +6,6 @@ import { Form } from "@/components/ui/form";
 import Button from "@/components/shared/buttons/Button";
 import BasicInput from "@/components/shared/formElements/BasicInput";
 import { useState, useTransition } from "react";
-// import { signUp } from "@/app/(auth)/signup/actions";
 import PasswordInput from "@/components/shared/formElements/PasswordInput";
 import { login } from "@/app/(auth)/login/actions";
 

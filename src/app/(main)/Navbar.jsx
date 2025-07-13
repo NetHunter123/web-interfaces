@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import UserButton from "@/components/shared/buttons/UserButton";
-import SearchField from "@/components/shared/SearchField";
 
 const Navbar = () => {
   return (
@@ -13,7 +12,7 @@ const Navbar = () => {
         >
           Eco <span className={"text-chart-5y"}>Power</span>{" "}
         </Link>
-        <SearchField />
+
         <UserButton className={"sm:ms-auto"} />
       </div>
     </header>
