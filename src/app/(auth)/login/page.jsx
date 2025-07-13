@@ -22,29 +22,29 @@ const LoginPage = () => {
           <div className="space-y-1 text-center">
             <h1 className={"text-3xl font-bold text-primary"}>Авторизація</h1>
             <p className={"text-muted-foreground"}>
-              Це місце де ви знайдете свою{" "}
-              <span className={"font-bold italic text-primary"}>здорову</span>{" "}
-              їжу
+              Це місце де ви побачите свою{" "}
+              <span className={"font-bold italic text-primary"}>статистику</span>{" "}
+              електроспоживання
             </p>
           </div>
-          <div className="space-y-5">
+          <div className="space-y-7">
             <SignInForm />
-            <div className="mt-4">
-              <Link
-                href="/api/auth/google"
-                className="flex w-full items-center justify-center gap-2 rounded-md bg-white px-4 py-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-              >
-                <FaGoogle className="h-5 w-5" />
-                <span>Увійти через Google</span>
-              </Link>
-            </div>
-            <Link
-              href={"/signup"}
-              className={"block text-center hover:underline"}
-            >
-              Ще не зареєстровані у нас?{" "}
-              <span className={"text-primary"}>Тоді реєструйтесь!</span>
-            </Link>
+            {/*<div className="mt-4">*/}
+            {/*  <Link*/}
+            {/*    href="/api/auth/google"*/}
+            {/*    className="flex w-full items-center justify-center gap-2 rounded-md bg-white px-4 py-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"*/}
+            {/*  >*/}
+            {/*    <FaGoogle className="h-5 w-5" />*/}
+            {/*    <span>Увійти через Google</span>*/}
+            {/*  </Link>*/}
+            {/*</div>*/}
+            {/*<Link*/}
+            {/*  href={"/signup"}*/}
+            {/*  className={"block text-center hover:underline"}*/}
+            {/*>*/}
+            {/*  Ще не зареєстровані у нас?{" "}*/}
+            {/*  <span className={"text-primary"}>Тоді реєструйтесь!</span>*/}
+            {/*</Link>*/}
           </div>
         </div>
       </div>
