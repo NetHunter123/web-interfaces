@@ -23,7 +23,7 @@ export async function login(formData) {
 
   // 4. Якщо успішно – отримуємо токен і встановлюємо його в cookie
   const data = await res.json();
-  console.log("action data" , data);
+  console.log("action.js data" , data);
   const token = data.authToken;  // припускаємо, що API повертає токен
   const cookieStore = await cookies();
   cookieStore.set('auth-token', token, { path: '/', httpOnly: true });  // встановлюємо auth-token cookie:contentReference[oaicite:2]{index=2}

@@ -19,7 +19,6 @@ import Cookies from 'js-cookie'
 const UserButton = ({className}) => {
   const raw = Cookies.get('user')
   const user = raw ? JSON.parse(raw) : null
-  console.log("user btn", user)
 
   return (
     <DropdownMenu>

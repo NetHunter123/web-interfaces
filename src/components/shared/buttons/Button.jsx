@@ -1,10 +1,8 @@
 import React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
-
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { LuLoaderPinwheel } from "react-icons/lu";
 import { TbLoader3 } from "react-icons/tb";
 
 const buttonVariants = cva(
